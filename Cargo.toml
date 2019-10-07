@@ -1,0 +1,10 @@
+[package]
+name = "chromatose"
+version = "0.1.0"
+authors = ["Brainium Studios LLC"]
+edition = "2018"
+license = "Brainium-Proprietary"
+
+[dependencies]
+gee = { git = "https://github.com/BrainiumLLC/gee", optional = true }
+serde = { version = "1.0.101", features = ["serde_derive"], optional = true }

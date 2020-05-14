@@ -4,7 +4,7 @@ name = "chromatose-macros"
 version = "0.1.0"
 authors = ["Brainium Studios LLC"]
 edition = "2018"
-license = "Brainium-Proprietary"
+license = "LicenseRef-Brainium-Proprietary"
 
 [lib]
 proc-macro = true

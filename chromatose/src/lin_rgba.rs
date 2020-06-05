@@ -25,10 +25,3 @@ impl LinRgba {
         SrgbRgba(util::map_color(self.0, util::linear_to_srgb))
     }
 }
-
-#[cfg(feature = "gee")]
-impl Into<gee::Vec4<f32>> for LinRgba {
-    fn into(self) -> gee::Vec4<f32> {
-        gee::Vec4::new(self.0[0], self.0[1], self.0[2], self.0[3])
-    }
-}

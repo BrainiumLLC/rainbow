@@ -8,5 +8,4 @@ license = "LicenseRef-Brainium-Proprietary"
 [dependencies]
 chromatose-macros = { version = "0.1.0", path = "../chromatose-macros" }
 chromatose-shared = { version = "0.1.0", path = "../chromatose-shared" }
-gee = { git = "https://github.com/BrainiumLLC/gee", optional = true }
 serde = { version = "1.0.101", features = ["serde_derive"], optional = true }

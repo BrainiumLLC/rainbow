@@ -3,12 +3,10 @@ use crate::{util, SrgbRgba};
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, PartialOrd)]
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
-pub struct LinRgba(pub [f32; 4]);
+pub struct LinRgba([f32; 4]);
 
 impl LinRgba {
-    pub fn new(r: f32, g: f32, b: f32, a: f32) -> Self {
-        Self([r, g, b, a])
-    }
+    impl_ctors!();
 
     /// Change the alpha channel.
     ///
@@ -22,6 +20,8 @@ impl LinRgba {
     }
 
     pub fn to_srgb(self) -> SrgbRgba {
-        SrgbRgba(util::map_color(self.0, util::linear_to_srgb))
+        util::map_color(self.0, util::linear_to_srgb).into()
     }
 }
+
+impl_from_into!(LinRgba);

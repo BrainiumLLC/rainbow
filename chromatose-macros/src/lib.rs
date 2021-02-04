@@ -74,8 +74,8 @@ fn expand(name: &Ident, name_srgb: Ident, srgb: [f32; 4]) -> TokenStream {
     let (lr, lg, lb, la) = (lin[0], lin[1], lin[2], lin[3]);
     let (sr, sg, sb, sa) = (srgb[0], srgb[1], srgb[2], srgb[3]);
     let expanded = quote! {
-        pub const #name: LinRgba = LinRgba([#lr, #lg, #lb, #la]);
-        pub const #name_srgb: SrgbRgba = SrgbRgba([#sr, #sg, #sb, #sa]);
+        pub const #name: LinRgba = LinRgba::from_f32(#lr, #lg, #lb, #la);
+        pub const #name_srgb: SrgbRgba = SrgbRgba::from_f32(#sr, #sg, #sb, #sa);
     };
     TokenStream::from(expanded)
 }

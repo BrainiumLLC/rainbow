@@ -59,19 +59,19 @@ jobs:
 
       - name: Check documentation
         shell: bash
-        run: cargo doc --package rainbow --no-deps --target ${{ matrix.platform.target }} --features $FEATURES
+        run: cargo doc --manifest-path rainbow/Cargo.toml --no-deps --target ${{ matrix.platform.target }} --features $FEATURES
 
       - name: Build
         shell: bash
-        run: cargo $CMD build --package rainbow --verbose --target ${{ matrix.platform.target }} --features $FEATURES
+        run: cargo $CMD build --manifest-path rainbow/Cargo.toml --verbose --target ${{ matrix.platform.target }} --features $FEATURES
 
       - name: Build tests
         shell: bash
-        run: cargo $CMD test --package rainbow --no-run --verbose --target ${{ matrix.platform.target }} --features $FEATURES
+        run: cargo $CMD test --manifest-path rainbow/Cargo.toml --no-run --verbose --target ${{ matrix.platform.target }} --features $FEATURES
 
       - name: Run tests
         shell: bash
         if: (
           !contains(matrix.platform.target, 'android') &&
           !contains(matrix.platform.target, 'ios'))
-        run: cargo test --package rainbow --verbose --target ${{ matrix.platform.target }} --features $FEATURES
+        run: cargo test --manifest-path rainbow/Cargo.toml --verbose --target ${{ matrix.platform.target }} --features $FEATURES

@@ -7,7 +7,7 @@ description = "Types, conversions, and conveniences for linear and sRGB colors! 
 documentation = "https://docs.rs/rainbow"
 repository = "https://github.com/BrainiumLLC/rainbow"
 readme = "../README.md"
-keywords = ["color", "colour", "rgb", "rgba", "srgb", "graphics"]
+keywords = ["color", "colour", "rgb", "srgb", "graphics"]
 categories = ["computer-vision", "graphics", "multimedia", "rendering"]
 license = "Apache-2.0/MIT"
 

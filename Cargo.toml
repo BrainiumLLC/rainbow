@@ -1,6 +1,6 @@
 [workspace]
 members = [
-    "chromatose",
-    "chromatose-shared",
-    "chromatose-macros",
+    "rainbow",
+    "rainbow-shared",
+    "rainbow-macros",
 ]

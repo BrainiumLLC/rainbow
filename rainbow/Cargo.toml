@@ -1,0 +1,18 @@
+[package]
+name = "rainbow"
+version = "0.1.0"
+authors = ["Brainium Studios LLC", "Francesca Lovebloom <francesca@brainiumstudios.com>"]
+edition = "2018"
+description = "Types, conversions, and conveniences for linear and sRGB colors!"
+documentation = "https://docs.rs/rainbow"
+repository = "https://github.com/BrainiumLLC/rainbow"
+readme = "../README.md"
+keywords = ["color", "colour", "rgb", "rgba", "srgb", "graphics"]
+categories = ["computer-vision", "graphics", "multimedia", "rendering"]
+license = "Apache-2.0/MIT"
+
+[dependencies]
+rainbow-macros = { version = "0.1.0", path = "../rainbow-macros" }
+rainbow-shared = { version = "0.1.0", path = "../rainbow-shared" }
+serde = { version = "1.0.101", features = ["serde_derive"], optional = true }
+uno = "0.1.0"

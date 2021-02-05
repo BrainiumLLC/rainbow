@@ -93,5 +93,5 @@ mod lin_rgba;
 mod srgb_rgba;
 
 pub use crate::{lin_rgba::LinRgba, srgb_rgba::SrgbRgba};
-pub use chromatose_macros::{rgb, rgba};
-pub use chromatose_shared as util;
+pub use rainbow_macros::{rgb, rgba};
+pub use rainbow_shared as util;

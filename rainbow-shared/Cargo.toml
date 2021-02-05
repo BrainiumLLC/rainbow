@@ -1,0 +1,10 @@
+[package]
+name = "rainbow-shared"
+version = "0.1.0"
+authors = ["Brainium Studios LLC", "Francesca Lovebloom <francesca@brainiumstudios.com>"]
+edition = "2018"
+description = "Don't depend on this directly - shared rainbow utility crate"
+documentation = "https://docs.rs/rainbow"
+repository = "https://github.com/BrainiumLLC/rainbow"
+readme = "README.md"
+license = "Apache-2.0/MIT"

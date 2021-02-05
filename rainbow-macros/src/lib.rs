@@ -1,8 +1,8 @@
 extern crate proc_macro;
 
 use self::proc_macro::TokenStream;
-use chromatose_shared as util;
 use quote::quote;
+use rainbow_shared as util;
 use syn::parse::{Parse, ParseStream, Result};
 use syn::{parse_macro_input, parse_str, Ident, LitInt, Token};
 

@@ -1,0 +1,19 @@
+[package]
+name = "rainbow-macros"
+version = "0.1.0"
+authors = ["Brainium Studios LLC", "Francesca Lovebloom <francesca@brainiumstudios.com>"]
+edition = "2018"
+description = "Don't depend on this directly - rainbow proc macros"
+documentation = "https://docs.rs/rainbow"
+repository = "https://github.com/BrainiumLLC/rainbow"
+readme = "README.md"
+license = "Apache-2.0/MIT"
+
+[lib]
+proc-macro = true
+
+[dependencies]
+rainbow-shared = { version = "0.1.0", path = "../rainbow-shared" }
+proc-macro2 = "1.0.6"
+quote = "1.0.2"
+syn = { version = "1.0.5", features = ["full"] }

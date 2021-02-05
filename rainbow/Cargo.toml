@@ -14,5 +14,5 @@ license = "Apache-2.0/MIT"
 [dependencies]
 rainbow-macros = { version = "0.1.0", path = "../rainbow-macros" }
 rainbow-shared = { version = "0.1.0", path = "../rainbow-shared" }
-serde = { version = "1.0.101", features = ["serde_derive"], optional = true }
+serde = { version = "1.0.123", features = ["serde_derive"], optional = true }
 uno = "0.1.0"

@@ -1,4 +1,4 @@
-use crate::{util, SrgbRgba};
+use crate::{util, Hsva, SrgbRgba};
 
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, PartialOrd)]
@@ -7,6 +7,10 @@ pub struct LinRgba([f32; 4]);
 
 impl LinRgba {
     impl_ctors!();
+
+    pub fn map_hsv(self, f: impl FnOnce(Hsva) -> Hsva) -> Self {
+        f(Hsva::from_rgba(self)).to_rgba()
+    }
 
     /// Change the alpha channel.
     ///

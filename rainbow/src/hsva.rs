@@ -94,8 +94,13 @@ impl Hsva {
         self
     }
 
-    pub fn invert(mut self) -> Self {
+    pub fn invert_hue(mut self) -> Self {
         self.hue = (self.hue + 180.0) % 360.0;
+        self
+    }
+
+    pub fn invert_value(mut self) -> Self {
+        self.value = 1.0 - self.value;
         self
     }
 }

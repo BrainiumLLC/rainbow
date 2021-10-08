@@ -88,11 +88,11 @@ macro_rules! impl_from_into {
     };
 }
 
-pub mod colors;
+mod colors;
 mod hsva;
 mod lin_rgba;
 mod srgb_rgba;
 
-pub use crate::{hsva::Hsva, lin_rgba::LinRgba, srgb_rgba::SrgbRgba};
+pub use self::{colors::*, hsva::Hsva, lin_rgba::LinRgba, srgb_rgba::SrgbRgba};
 pub use rainbow_macros::{rgb, rgba};
 pub use rainbow_shared as util;

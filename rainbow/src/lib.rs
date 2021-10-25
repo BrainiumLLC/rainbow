@@ -1,13 +1,5 @@
 macro_rules! impl_ctors {
     () => {
-        pub fn zero() -> Self {
-            [0.0; 4].into()
-        }
-
-        pub fn one() -> Self {
-            [1.0; 4].into()
-        }
-
         pub const fn from_f32(r: f32, g: f32, b: f32, a: f32) -> Self {
             Self::from_f32_array([r, g, b, a])
         }

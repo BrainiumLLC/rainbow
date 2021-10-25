@@ -12,14 +12,26 @@ macro_rules! impl_ctors {
             Self::from_f32_array([r, g, b, a])
         }
 
+        pub const fn gray_f32(c: f32, a: f32) -> Self {
+            Self::from_f32(c, c, c, a)
+        }
+
         // We avoid the use of `From`/`Into` in these implementations to make it
         // easier to mark things `const` down the road...
         pub fn from_unorm8(r: uno::Unorm8, g: uno::Unorm8, b: uno::Unorm8, a: uno::Unorm8) -> Self {
             Self::from_unorm8_array([r, g, b, a])
         }
 
+        pub fn gray_unorm8(c: uno::Unorm8, a: uno::Unorm8) -> Self {
+            Self::from_unorm8(c, c, c, a)
+        }
+
         pub fn from_u8(r: u8, g: u8, b: u8, a: u8) -> Self {
             Self::from_u8_array([r, g, b, a])
+        }
+
+        pub fn gray_u8(c: u8, a: u8) -> Self {
+            Self::from_u8(c, c, c, a)
         }
 
         pub const fn from_f32_array(color: [f32; 4]) -> Self {

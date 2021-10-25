@@ -1,6 +1,7 @@
 # Unreleased
 
 - **Breaking:** all colors have been moved to the crate root.
+- Added conveniences for constructing grayscale colors.
 
 # 0.1.0 (2021-02-05)
 

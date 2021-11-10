@@ -57,15 +57,10 @@ impl Parse for Rgba {
 
 impl Rgba {
     fn srgb(&self) -> [f32; 4] {
-        let bytes = self.rgb.packed().to_be_bytes();
-        let a = self.a.base10_parse::<u8>().expect("alpha invalid");
+        let [r, g, b, _] = self.rgb.srgb();
         let divisor = u8::max_value() as f32;
-        [
-            bytes[0] as f32 / divisor,
-            bytes[1] as f32 / divisor,
-            bytes[2] as f32 / divisor,
-            a as f32 / divisor,
-        ]
+        let a = self.a.base10_parse::<u8>().expect("alpha invalid") as f32 / divisor;
+        [r * a, g * a, b * a, a]
     }
 }
 

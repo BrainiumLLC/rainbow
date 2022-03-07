@@ -1,4 +1,5 @@
 use crate::{util, Hsva, SrgbRgba};
+use std::ops::{Add, Div, Mul, Sub};
 
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, PartialOrd)]
@@ -29,3 +30,55 @@ impl LinRgba {
 }
 
 impl_from_into!(LinRgba);
+
+impl Add for LinRgba {
+    type Output = Self;
+
+    fn add(self, rhs: Self) -> Self {
+        Self([
+            self.0[0] + rhs.0[0],
+            self.0[1] + rhs.0[1],
+            self.0[2] + rhs.0[2],
+            self.0[3] + rhs.0[3],
+        ])
+    }
+}
+
+impl Sub for LinRgba {
+    type Output = Self;
+
+    fn sub(self, rhs: Self) -> Self {
+        Self([
+            self.0[0] - rhs.0[0],
+            self.0[1] - rhs.0[1],
+            self.0[2] - rhs.0[2],
+            self.0[3] - rhs.0[3],
+        ])
+    }
+}
+
+impl Mul for LinRgba {
+    type Output = Self;
+
+    fn mul(self, rhs: Self) -> Self {
+        Self([
+            self.0[0] * rhs.0[0],
+            self.0[1] * rhs.0[1],
+            self.0[2] * rhs.0[2],
+            self.0[3] * rhs.0[3],
+        ])
+    }
+}
+
+impl Div for LinRgba {
+    type Output = Self;
+
+    fn div(self, rhs: Self) -> Self {
+        Self([
+            self.0[0] / rhs.0[0],
+            self.0[1] / rhs.0[1],
+            self.0[2] / rhs.0[2],
+            self.0[3] / rhs.0[3],
+        ])
+    }
+}

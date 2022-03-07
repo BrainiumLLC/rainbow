@@ -1,4 +1,5 @@
 use crate::{util, Hsva, SrgbRgba};
+use en::Num;
 use std::ops::{Add, Div, Mul, Sub};
 
 #[repr(transparent)]
@@ -44,6 +45,14 @@ impl Add for LinRgba {
     }
 }
 
+impl<T: en::Float> Add<T> for LinRgba {
+    type Output = Self;
+
+    fn add(self, rhs: T) -> Self {
+        util::map_all(self.0, |lhs| (lhs.cast::<T>() + rhs).to_f32()).into()
+    }
+}
+
 impl Sub for LinRgba {
     type Output = Self;
 
@@ -70,6 +79,14 @@ impl Mul for LinRgba {
     }
 }
 
+impl<T: en::Float> Mul<T> for LinRgba {
+    type Output = Self;
+
+    fn mul(self, rhs: T) -> Self {
+        util::map_all(self.0, |lhs| (lhs.cast::<T>() * rhs).to_f32()).into()
+    }
+}
+
 impl Div for LinRgba {
     type Output = Self;
 
@@ -81,4 +98,16 @@ impl Div for LinRgba {
             self.0[3] / rhs.0[3],
         ])
     }
+}
+
+impl<T: en::Float> Div<T> for LinRgba {
+    type Output = Self;
+
+    fn div(self, rhs: T) -> Self {
+        util::map_all(self.0, |lhs| (lhs.cast::<T>() / rhs).to_f32()).into()
+    }
+}
+
+pub fn Lerp<F: en::Float>(start: LinRgba, end: LinRgba, factor: F) -> LinRgba {
+    start * (F::one() - factor) + end * factor
 }

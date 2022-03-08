@@ -66,6 +66,14 @@ impl Sub for LinRgba {
     }
 }
 
+impl<T: en::Float> Sub<T> for LinRgba {
+    type Output = Self;
+
+    fn sub(self, rhs: T) -> Self {
+        util::map_all(self.0, |lhs| (lhs.cast::<T>() - rhs).to_f32()).into()
+    }
+}
+
 impl Mul for LinRgba {
     type Output = Self;
 

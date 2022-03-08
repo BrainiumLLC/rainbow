@@ -116,6 +116,6 @@ impl<T: en::Float> Div<T> for LinRgba {
     }
 }
 
-pub fn Lerp<F: en::Float>(start: LinRgba, end: LinRgba, factor: F) -> LinRgba {
+pub fn lerp<F: en::Float>(start: LinRgba, end: LinRgba, factor: F) -> LinRgba {
     start * (F::one() - factor) + end * factor
 }

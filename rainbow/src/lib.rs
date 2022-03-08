@@ -100,7 +100,7 @@ mod srgb_rgba;
 pub use self::{
     colors::*,
     hsva::Hsva,
-    lin_rgba::{Lerp, LinRgba},
+    lin_rgba::{lerp, LinRgba},
     srgb_rgba::SrgbRgba,
 };
 pub use rainbow_macros::{rgb, rgba};

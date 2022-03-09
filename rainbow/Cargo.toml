@@ -12,6 +12,7 @@ categories = ["computer-vision", "graphics", "multimedia", "rendering"]
 license = "Apache-2.0/MIT"
 
 [dependencies]
+en = "0.1.0"
 rainbow-macros = { version = "0.1.0", path = "../rainbow-macros" }
 rainbow-shared = { version = "0.1.0", path = "../rainbow-shared" }
 serde = { version = "1.0.123", features = ["serde_derive"], optional = true }

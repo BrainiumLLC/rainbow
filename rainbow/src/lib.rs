@@ -97,6 +97,11 @@ mod hsva;
 mod lin_rgba;
 mod srgb_rgba;
 
-pub use self::{colors::*, hsva::Hsva, lin_rgba::LinRgba, srgb_rgba::SrgbRgba};
+pub use self::{
+    colors::*,
+    hsva::Hsva,
+    lin_rgba::{lerp, LinRgba},
+    srgb_rgba::SrgbRgba,
+};
 pub use rainbow_macros::{rgb, rgba};
 pub use rainbow_shared as util;

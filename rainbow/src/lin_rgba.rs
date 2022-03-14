@@ -28,6 +28,12 @@ impl LinRgba {
     pub fn to_srgb(self) -> SrgbRgba {
         util::map_color(self.0, util::linear_to_srgb).into()
     }
+
+    /// Transmutes the data to Srgb without doing any covnersions.
+    /// This will lead to incorrect results, and should only be used if you expliciyly want to blend in srgb.
+    pub fn transmute_srgb(self) -> SrgbRgba {
+        SrgbRgba::from_f32_array(self.0)
+    }
 }
 
 impl_from_into!(LinRgba);

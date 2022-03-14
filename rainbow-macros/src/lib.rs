@@ -21,8 +21,8 @@ impl Parse for Rgb {
 }
 
 impl Rgb {
-    fn name_srgb(&self) -> Ident {
-        parse_str::<Ident>(&format!("{}_SRGB", self.name)).expect("suffixed identifier invalid")
+    fn name_linear(&self) -> Ident {
+        parse_str::<Ident>(&format!("{}_LINEAR", self.name)).expect("suffixed identifier invalid")
     }
 
     fn packed(&self) -> u32 {
@@ -64,13 +64,13 @@ impl Rgba {
     }
 }
 
-fn expand(name: &Ident, name_srgb: Ident, srgb: [f32; 4]) -> TokenStream {
+fn expand(name: &Ident, name_linear: Ident, srgb: [f32; 4]) -> TokenStream {
     let lin = util::map_color(srgb, util::srgb_to_linear);
     let (lr, lg, lb, la) = (lin[0], lin[1], lin[2], lin[3]);
     let (sr, sg, sb, sa) = (srgb[0], srgb[1], srgb[2], srgb[3]);
     let expanded = quote! {
-        pub const #name: LinRgba = LinRgba::from_f32(#lr, #lg, #lb, #la);
-        pub const #name_srgb: SrgbRgba = SrgbRgba::from_f32(#sr, #sg, #sb, #sa);
+        pub const #name: SrgbRgba = SrgbRgba::from_f32(#sr, #sg, #sb, #sa);
+        pub const #name_linear: LinRgba = LinRgba::from_f32(#lr, #lg, #lb, #la);
     };
     TokenStream::from(expanded)
 }
@@ -78,11 +78,11 @@ fn expand(name: &Ident, name_srgb: Ident, srgb: [f32; 4]) -> TokenStream {
 #[proc_macro]
 pub fn rgb(input: TokenStream) -> TokenStream {
     let input = parse_macro_input!(input as Rgb);
-    expand(&input.name, input.name_srgb(), input.srgb())
+    expand(&input.name, input.name_linear(), input.srgb())
 }
 
 #[proc_macro]
 pub fn rgba(input: TokenStream) -> TokenStream {
     let input = parse_macro_input!(input as Rgba);
-    expand(&input.rgb.name, input.rgb.name_srgb(), input.srgb())
+    expand(&input.rgb.name, input.rgb.name_linear(), input.srgb())
 }

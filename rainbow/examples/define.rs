@@ -6,12 +6,9 @@ use rainbow::{rgb, LinRgba, SrgbRgba};
 rgb!(AN_AUSPICIOUS_COLOR, 0x00FF80);
 
 fn main() {
-    // The unsuffixed color name gives you the color in a linear encoding. This
-    // might seem counter-intuitive, since you originally defined this name with
-    // an sRGB value... however, this reflects the general intention when
-    // working with colors: sRGB is the usual way they're defined, and linear
-    // is the usual way they're operated on.
-    println!("linear: {:?}", AN_AUSPICIOUS_COLOR);
-    // If you suffix with `_SRGB`, you get the same color encoded as sRGB.
-    println!("srgb:  {:?}", AN_AUSPICIOUS_COLOR_SRGB);
+    // The unsuffixed color name gives you the color in an sRGB encoding. This
+    // makes sense, since you originally defined the color with an sRGB value.
+    println!("srgb: {:?}", AN_AUSPICIOUS_COLOR);
+    // If you suffix with `_LINEAR`, you get the same color encoded as linear.
+    println!("linear:  {:?}", AN_AUSPICIOUS_COLOR_LINEAR);
 }

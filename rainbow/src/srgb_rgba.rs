@@ -13,11 +13,10 @@ impl SrgbRgba {
     /// Note that alpha is always pre-multiplied, meaning the RGB channels will
     /// be multiplied by this new alpha value. Therefore, calling this more than
     /// once may be destructive.
-    ///
-    /// This internally converts to linear color and back, so if you're going to
-    /// convert to linear as a final step anyway, you should call this after that.
     pub fn a(self, alpha: f32) -> Self {
-        self.to_linear().a(alpha).to_srgb()
+        Self(util::map_color(util::map_alpha(self.0, |_| alpha), |ch| {
+            ch * alpha
+        }))
     }
 
     /// Convert to pre-multiplied alpha.
